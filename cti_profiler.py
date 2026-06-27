@@ -1,10 +1,14 @@
 import requests
 import json
+import os
+from dotenv import load_dotenv
+
+# Load the hidden environment variables
+load_dotenv()
 
 # --- CONFIGURATION ---
-# Replace 'YOUR_API_KEY_HERE' with your actual VirusTotal API key
-
-VT_API_KEY = "32e5bc3ce300f8ef72c539ef4ba61a60ebffc1926c1a062f823ee42b5a52fb79"
+# The script now securely pulls the key from your .env file!
+VT_API_KEY = os.getenv("VT_API_KEY")
 
 def check_ip_virustotal(ip_address):
     """Queries the VirusTotal API for IP address reports."""
